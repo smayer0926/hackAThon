@@ -15,6 +15,9 @@ public class hackAThon {
         this.name = name;
         allEvents.add(this);
     }
+    public static void clearAllEvents(){
+        allEvents.clear();
+    }
 
 //Getters
     public String getName() {
