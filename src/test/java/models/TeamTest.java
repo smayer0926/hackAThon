@@ -43,10 +43,20 @@ public class TeamTest {
     }
     @Test
     public void findReturnsCorrectTeamWhenMoreThanOneNameExists() throws Exception {
-
         Team testTeam = newTeam();
         Team otherTeam = new Team("Ducks");
         assertEquals(2, Team.findById(otherTeam.getTeamId()).getTeamId());
+    }
+    @Test
+    public void updateChangestoTeamContent() throws Exception {
+        Team testTeam = newTeam();
+        String formerContent = testTeam.getNameOfTeam();
+        int formerId = testTeam.getTeamId();
+
+        testTeam.update("Android: Day 40");
+
+        assertEquals(formerId, testTeam.getTeamId());
+        assertNotEquals(formerContent, testTeam.getNameOfTeam());
     }
 
     //Helpers
