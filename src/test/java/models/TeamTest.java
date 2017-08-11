@@ -10,4 +10,9 @@ public class TeamTest {
         Team testTeam = new Team("PDX");
         assertEquals(true, testTeam instanceof Team);
     }
+    @Test
+    public void getTeamName_teamInstantiatesWithName_PDX() throws Exception {
+        Team testTeam = new Team("PDX");
+        assertEquals("PDX", testTeam.getNameOfTeam());
+    }
 }
