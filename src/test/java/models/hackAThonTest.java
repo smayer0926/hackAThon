@@ -6,7 +6,7 @@ import org.junit.Test;
 public class hackAThonTest {
     @Test
     public void hackAThon_instantiatesCorrectly() throws Exception{
-        hackAThon event = new hackAThon();
+        hackAThon event = new hackAThon("Jim");
         assertEquals(true, event instanceof hackAThon);
     }
 
