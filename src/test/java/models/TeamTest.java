@@ -30,4 +30,13 @@ public class TeamTest {
         Team testTeam = new Team ("PDX");
         assertEquals(1, testTeam.getTeamId());
     }
+    public void findReturnsCorrectName() throws Exception {
+        Team testTeam = newTeam();
+        assertEquals(1, Team.findById(testTeam.getTeamId()).getTeamId());
+    }
+
+    //Helpers
+    public Team newTeam() {
+        return new Team("PDX");
+    }
 }
