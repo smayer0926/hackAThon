@@ -5,8 +5,14 @@ import org.junit.Test;
 
 public class hackAThonTest {
     @Test
-    public void placesYouveBeen_instantiatesCorrectly() throws Exception{
+    public void hackAThon_instantiatesCorrectly() throws Exception{
         hackAThon event = new hackAThon();
         assertEquals(true, event instanceof hackAThon);
+    }
+
+    @Test
+    public void hackAThon_entryInstantiatesWithConent_Name() throws Exception {
+        hackAThon event = new hackAThon("Jim");
+        assertEquals("Jim", event.getName());
     }
 }
