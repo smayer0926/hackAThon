@@ -6,62 +6,62 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class hackAThonTest {
+public class memberTest {
     @After
     public void tearDown () throws Exception {
-        hackAThon.clearAllEvents();
+        Member.clearAllEvents();
     }
     @Before
     public void setUp() throws Exception {
     }
     @Test
     public void hackAThon_instantiatesCorrectly() throws Exception{
-        hackAThon event = new hackAThon("Jim");
-        assertEquals(true, event instanceof hackAThon);
+        Member event = new Member("Jim");
+        assertEquals(true, event instanceof Member);
     }
     @Test
     public void hackAThon_entryInstantiatesWithContent_Jim() throws Exception {
-        hackAThon event = new hackAThon("Jim");
+        Member event = new Member("Jim");
         assertEquals("Jim", event.getName());
     }
     @Test
     public void hackAThon_entryReturnsContent_1() throws Exception {
-        hackAThon event = new hackAThon("Jim");
+        Member event = new Member("Jim");
         assertEquals(1, event.getAllEvents().size());
     }
     @Test
     public void getId_eventInstantiatesWithAnID_1() throws Exception {
-        hackAThon.clearAllEvents();
-        hackAThon myEvent = new hackAThon("Jim");
-        assertEquals(1, myEvent.getId());
+        Member.clearAllEvents();
+        Member myEvent = new Member("Jim");
+        assertEquals(1, myEvent.getParticpantId());
     }
     @Test
     public void findReturnsCorrectName() throws Exception {
-        hackAThon event = newEvents();
-        assertEquals(1, hackAThon.findById(event.getId()).getId());
+        Member event = newEvents();
+        assertEquals(1, Member.findById(event.getParticpantId()).getParticpantId());
     }
 
     @Test
     public void findReturnsCorrectPlaceWhenMoreThanOneNameExists() throws Exception {
-        hackAThon event = newEvents();
-        hackAThon otherEvent = new hackAThon("Bob");
-        assertEquals(2, hackAThon.findById(otherEvent.getId()).getId());
+        Member event = newEvents();
+        Member otherEvent = new Member("Bob");
+        assertEquals(2, Member.findById(otherEvent.getParticpantId()).getParticpantId());
     }
 
     @Test
     public void updateChangestoEventContent() throws Exception {
-        hackAThon event = newEvents();
+        Member event = newEvents();
         String formerContent = event.getName();
-        int formerId = event.getId();
+        int formerId = event.getParticpantId();
 
         event.update("Android: Day 40");
 
-        assertEquals(formerId, event.getId());
+        assertEquals(formerId, event.getParticpantId());
         assertNotEquals(formerContent, event.getName());
     }
 
     //Helpers
-    public hackAThon newEvents() {
-        return new hackAThon("Jim");
+    public Member newEvents() {
+        return new Member("Jim");
     }
 }
