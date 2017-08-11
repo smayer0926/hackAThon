@@ -31,4 +31,11 @@ public class hackAThonTest {
         hackAThon event = new hackAThon("Jim");
         assertEquals(1, event.getAllEvents().size());
     }
+
+    @Test
+    public void getID_eventInstantiatesWithAnID_1() throws Exception {
+        hackAThon.clearAllEvents();
+        hackAThon myEvent = new hackAThon("Jim");
+        assertEquals(1, myEvent.getId());
+    }
 }
