@@ -14,7 +14,7 @@ public class Team {
         teamId = allTeams.size();
         teamMembers = new ArrayList<Member>();
     }
-    public static void clear() {
+    public static void clearAllTeams() {
         allTeams.clear();
     }
     public static Team findById(int id){
