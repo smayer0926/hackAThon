@@ -27,7 +27,7 @@ public class memberTest {
     @Test
     public void hackAThon_entryReturnsContent_1() throws Exception {
         Member event = new Member("Jim", 20, "dude");
-        assertEquals(1, event.getAllEvents().size());
+        assertEquals(1, event.getAllMembers().size());
     }
     @Test
     public void getId_eventInstantiatesWithAnID_1() throws Exception {

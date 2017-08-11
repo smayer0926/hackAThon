@@ -2,7 +2,25 @@
     <p>Name of Team</p><hr>
     <p>{{ teams.nameOfTeam }}</p>
     <hr>
-    <a href="/teams/{{teams.id}}/update">Edit this Team </a>
+            {{#if allMembers}}
+                {{#each allMembers}} <!--loop-->
+
+                <h3>Member Name:</h3><h5> {{ name }}</h5>
+                <h3>Member Age:</h3><h5> {{ age }}</h5>
+                <h3>Member Email</h3><h5> {{ description }}</h5><hr>
+                <br>
+
+                {{/each}}
+
+            {{else}}
+                <p>Member List Empty!</p>
+            {{/if}}
+
+
+        <a href="/teams/{{teams.id}}/update">Edit Team Name!</a><br>
+    <a href="/members/new">Add new Members!</a>
+    <!--<a href="/members/{{members.id}}/update">Edit Member Details!</a>-->
+
 
 
 {{/partial}}
