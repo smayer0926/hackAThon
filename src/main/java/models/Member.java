@@ -5,16 +5,17 @@ import java.util.ArrayList;
 
 public class Member {
     private String participantName;
-
-
-
-    private int particpantId;
+    private int id;
     private static ArrayList<Member> allMembers = new ArrayList<Member>();
+    private int age;
+    private String description;
 
-    public Member(String name) {
+    public Member(String name, int age, String description) {
         this.participantName = name;
+        this.age = age;
+        this.description = description;
         allMembers.add(this);
-        this.particpantId = allMembers.size();
+        this.id = allMembers.size();
     }
     public static void clearAllEvents(){
         allMembers.clear();
@@ -23,8 +24,10 @@ public class Member {
     public static Member findById(int particpantId){
         return allMembers.get(particpantId-1);
     }
-    public void update(String name) {
+    public void update(String name, int age, String description) {
         this.participantName = name;
+        this.age = age;
+        this.description = description;
     }
 
 
@@ -32,11 +35,18 @@ public class Member {
     public String getName() {
         return participantName;
     }
-    public static ArrayList<Member> getAllEvents() {
+    public static ArrayList<Member> getAllMembers() {
         return allMembers;
     }
-    public int getParticpantId() {
-        return particpantId;
+    public int getId() {
+        return id;
+    }
+
+    public int getAge() {
+        return age;
+    }
+    public String getDescription() {
+        return description;
     }
 
 

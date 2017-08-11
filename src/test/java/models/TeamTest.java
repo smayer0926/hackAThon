@@ -35,27 +35,27 @@ public class TeamTest {
     @Test
     public void getTeamId_teamInstantiatesWithanId() throws Exception {
         Team testTeam = new Team ("PDX");
-        assertEquals(1, testTeam.getTeamId());
+        assertEquals(1, testTeam.getId());
     }
     public void findReturnsCorrectName() throws Exception {
         Team testTeam = newTeam();
-        assertEquals(1, Team.findById(testTeam.getTeamId()).getTeamId());
+        assertEquals(1, Team.findById(testTeam.getId()).getId());
     }
     @Test
     public void findReturnsCorrectTeamWhenMoreThanOneNameExists() throws Exception {
         Team testTeam = newTeam();
         Team otherTeam = new Team("Ducks");
-        assertEquals(2, Team.findById(otherTeam.getTeamId()).getTeamId());
+        assertEquals(2, Team.findById(otherTeam.getId()).getId());
     }
     @Test
     public void updateChangestoTeamContent() throws Exception {
         Team testTeam = newTeam();
         String formerContent = testTeam.getNameOfTeam();
-        int formerId = testTeam.getTeamId();
+        int formerId = testTeam.getId();
 
         testTeam.update("Android: Day 40");
 
-        assertEquals(formerId, testTeam.getTeamId());
+        assertEquals(formerId, testTeam.getId());
         assertNotEquals(formerContent, testTeam.getNameOfTeam());
     }
 

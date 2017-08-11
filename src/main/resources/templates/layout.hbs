@@ -1,0 +1,40 @@
+{{#block "header"}}
+
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{{#block "title"}}Hack-A-Thon 2k17{{/block}}</title>
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+        <!--<link rel="stylesheet" href="/app.css">-->
+    </head>
+    <body>
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="/teams/new">Add New Team</a></li>
+        <li role="presentation"><a href="/">See All Teams</a></li>
+    </ul>
+    <div class="container">
+        <div class="page-header">
+            <h1>Welcome to Hack-A-Thon.</h1>
+        </div>
+
+        <div class="col-md-12">
+            {{#block "content"}}
+            {{/block}}
+
+        </div>
+    </div>
+
+{{/block}}
+
+{{#block "footer"}}
+    <footer class="footer">
+        <div class="container">
+        </div>
+    </footer>
+    </body>
+    </html>
+{{/block}}

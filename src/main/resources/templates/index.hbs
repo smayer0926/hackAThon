@@ -1,0 +1,19 @@
+{{#partial "content"}}
+    {{#if allTeams}}
+
+        {{#each allTeams}} <!--loop-->
+
+        <h3>Team Name:</h3><h5> {{ nameOfTeam }}</h5><hr>
+
+        <br><p><a href="/teams/{{id}}"> Edit Team Name</a></p>
+        <br>
+
+        {{/each}}
+
+    {{else}}
+        <p>No Teams made!</p>
+    {{/if}}
+{{/partial}}
+
+
+{{> layout.hbs}}

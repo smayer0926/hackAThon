@@ -1,0 +1,31 @@
+{{#partial "content"}}
+
+
+    {{#if allMembers}}
+        {{#each allMembers}} <!--loop-->
+        <h3>Member Name:</h3>
+        <h5><br> {{ partcipantName }}</h5>
+        <h3>Member Age:</h3>
+        <h5><br> {{ age }}</h5>
+        <h3>Member Description:</h3>
+        <h5><br> {{ description }}</h5>
+        <a href="/members/{{id}}"> Edit Team Member</a></p>
+        <hr>
+        {{/each}}
+    {{else}}
+        <p>No Teams Added!</p>
+    {{/if}}
+{{/partial}}
+
+<form action="/Members/new" method="post">
+    <label for="particpantName">Add Team Member Name</label>
+    <input id="particpantName" name="particpantName" type="text" value="{{editMembers.age}}">
+    <label for="age">Add Team Member Age</label>
+    <input id="age" name="age" type="text" value="{{editMembers.description}}">
+    <label for="desciption">Add Team Member Details</label>
+    <input id="desciption" name="desciption" type="text" value="{{editMembers.desciption}}">
+    <button type="submit" class="btn btn-default">Add Team Member</button>
+</form>
+
+
+{{> layout.hbs}}
