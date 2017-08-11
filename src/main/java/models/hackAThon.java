@@ -24,6 +24,9 @@ public class hackAThon {
     public static hackAThon findById(int id){
         return allEvents.get(id-1);
     }
+    public void update(String name) {
+        this.name = name;
+    }
 
 
     //Getters

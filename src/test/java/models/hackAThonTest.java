@@ -48,6 +48,18 @@ public class hackAThonTest {
         assertEquals(2, hackAThon.findById(otherEvent.getId()).getId());
     }
 
+    @Test
+    public void updateChangestoEventContent() throws Exception {
+        hackAThon event = newEvents();
+        String formerContent = event.getName();
+        int formerId = event.getId();
+
+        event.update("Android: Day 40");
+
+        assertEquals(formerId, event.getId());
+        assertNotEquals(formerContent, event.getName());
+    }
+
     //Helpers
     public hackAThon newEvents() {
         return new hackAThon("Jim");
