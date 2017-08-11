@@ -3,43 +3,41 @@ package models;
 
 import java.util.ArrayList;
 
-public class hackAThon {
+public class Member {
+    private String participantName;
 
 
-    private String name;
-    private int id;
 
+    private int particpantId;
+    private static ArrayList<Member> allMembers = new ArrayList<Member>();
 
-    private static ArrayList<hackAThon> allEvents = new ArrayList<hackAThon>();
-
-    public hackAThon(String name) {
-        this.name = name;
-        allEvents.add(this);
-        this.id = allEvents.size();
+    public Member(String name) {
+        this.participantName = name;
+        allMembers.add(this);
+        this.particpantId = allMembers.size();
     }
     public static void clearAllEvents(){
-        allEvents.clear();
+        allMembers.clear();
     }
 
-    public static hackAThon findById(int id){
-        return allEvents.get(id-1);
+    public static Member findById(int particpantId){
+        return allMembers.get(particpantId-1);
     }
     public void update(String name) {
-        this.name = name;
+        this.participantName = name;
     }
 
 
     //Getters
     public String getName() {
-        return name;
+        return participantName;
     }
-    public static ArrayList<hackAThon> getAllEvents() {
-        return allEvents;
+    public static ArrayList<Member> getAllEvents() {
+        return allMembers;
     }
-    public int getId() {
-        return id;
+    public int getParticpantId() {
+        return particpantId;
     }
-
 
 
 }
