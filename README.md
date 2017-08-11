@@ -7,7 +7,7 @@
 ## Description
 
 _An Application to allow for the creation and tracking of a group of people and attendees at a startup-weekend conference._
-![Alt text](/screenshot.png)
+![Alt text](/ScreenShot.png)
 
 ## Setup/Installation Requirements
 
@@ -38,4 +38,4 @@ _No known bugs._
 
 ### License
 
-Copyright &copy; 2017 _Stephanie Mayer 
+Copyright &copy; 2017 _Stephanie Mayer
