@@ -23,4 +23,11 @@ public class TeamTest {
         Team two = new Team("Ducks");
         assertEquals(2, Team.getAllTeams().size());
     }
+
+    @Test
+    public void getTeamId_teamInstantiatesWithanId() throws Exception {
+        Team.clear();
+        Team testTeam = new Team ("PDX");
+        assertEquals(1, testTeam.getTeamId());
+    }
 }
