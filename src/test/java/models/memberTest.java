@@ -42,14 +42,14 @@ public class memberTest {
     }
 
     @Test
-    public void findReturnsCorrectPlaceWhenMoreThanOneNameExists() throws Exception {
+    public void findReturnsCorrectMemberWhenMoreThanOneNameExists() throws Exception {
         Member event = newEvents();
         Member otherEvent = new Member("Bob");
         assertEquals(2, Member.findById(otherEvent.getParticpantId()).getParticpantId());
     }
 
     @Test
-    public void updateChangestoEventContent() throws Exception {
+    public void updateChangestoMemberContent() throws Exception {
         Member event = newEvents();
         String formerContent = event.getName();
         int formerId = event.getParticpantId();
