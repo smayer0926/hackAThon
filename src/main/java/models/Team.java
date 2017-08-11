@@ -23,6 +23,10 @@ public class Team {
     public void addMember(Member member){
         teamMembers.add(member);
     }
+    public void update(String nameOfTeam) {
+        this.nameOfTeam = nameOfTeam;
+    }
+
 
     //Getters
     public String getNameOfTeam() {
