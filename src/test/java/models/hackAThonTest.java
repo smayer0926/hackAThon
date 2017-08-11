@@ -35,12 +35,19 @@ public class hackAThonTest {
         hackAThon myEvent = new hackAThon("Jim");
         assertEquals(1, myEvent.getId());
     }
-
     @Test
     public void findReturnsCorrectName() throws Exception {
         hackAThon event = newEvents();
         assertEquals(1, hackAThon.findById(event.getId()).getId());
     }
+
+    @Test
+    public void findReturnsCorrectPlaceWhenMoreThanOneNameExists() throws Exception {
+        hackAThon event = newEvents();
+        hackAThon otherEvent = new hackAThon("Bob");
+        assertEquals(2, hackAThon.findById(otherEvent.getId()).getId());
+    }
+
     //Helpers
     public hackAThon newEvents() {
         return new hackAThon("Jim");
