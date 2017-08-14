@@ -4,48 +4,63 @@ import java.util.ArrayList;
 
 public class Team {
     private String nameOfTeam;
+    private String description;
     private static ArrayList<Team> allTeams = new ArrayList<Team>();
-
-
+    private static ArrayList<String> allMembers;
     private int id;
-    private ArrayList<Member> teamMembers;
+    private static int increment;
 
-    public Team(String nameOfTeam) {
+
+    public Team(String nameOfTeam, String description) {
         this.nameOfTeam = nameOfTeam;
+        this.description = description;
+        allMembers = new ArrayList<String>();
+        increment++;
+        this.id = increment;
         allTeams.add(this);
-        id = allTeams.size();
-        teamMembers = new ArrayList<Member>();
     }
+    public static Team findbyId(int id) {
+        Team find= null;
+        for (Team newTeam : allTeams){
+            if(newTeam.getId() == id){
+                find = newTeam;
+            }
+        }
+        return find;
+    }
+
     public static void clearAllTeams() {
         allTeams.clear();
     }
-    public static Team findById(int id){
-        return allTeams.get(id-1);
-    }
-    public void addMember(Member member){
-        teamMembers.add(member);
-    }
-    public void update(String nameOfTeam) {
-        this.nameOfTeam = nameOfTeam;
-    }
 
 
-    //Getters
+//Getters
     public String getNameOfTeam() {
         return nameOfTeam;
     }
-
+    public String getDescription() {
+        return description;
+    }
     public static ArrayList<Team> getAllTeams() {
         return allTeams;
     }
-
+    public static ArrayList<String> getAllMembers() {
+        return allMembers;
+    }
     public int getId() {
         return id;
     }
-
-
-    public ArrayList<Member> getTeamMembers() {
-        return teamMembers;
+    public static int getIncrement() {
+        return increment;
     }
-}
+    public void update(String name){
+        this.nameOfTeam = nameOfTeam;
+    }
 
+//Setters
+    public void setMembers(String members) {
+        this.allMembers.add(members);
+    }
+
+
+}

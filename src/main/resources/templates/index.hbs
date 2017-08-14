@@ -1,38 +1,18 @@
 {{#partial "content"}}
+
+
     {{#if allTeams}}
-<div class="container">
-<div class="row">
-<div class="col-md-6">
-        {{#each allTeams}} <!--loop-->
-
-        <h3>Team Name:</h3><h5> {{ nameOfTeam }}</h5><hr>
-
-        {{#if allMembers}}
-            {{#each allMembers}} <!--loop-->
-
-            <h3>Member Name:</h3><h5> {{ name }}</h5>
-            <h3>Member Age:</h3><h5> {{ age }}</h5>
-            <h3>Member Description</h3><h5> {{ description }}</h5><hr>
-            <!--<br><p><a href="/teams/{{id}}"> Edit Team Name</a></p>-->
-            <br>
-
+        <h1>List of Teams:</h1>
+        <ul>
+            {{#each allTeams}}
+                <li>{{nameOfTeam}}  <a href="/teams/{{id}}"><span aria-hidden="true">Add members</span></a></li>
             {{/each}}
-
-        {{/if}}
-
-        <br><p><a href="/teams/{{id}}"> Edit Team Name</a></p>
-        <a href="/members/new">Add new Members!</a>
-
-
-        <br>
-
-        {{/each}}
-
+        </ul>
     {{else}}
-        <p>No Teams made!</p>
+        <p><a href="/teams/new">Add a New Team</a></p>
     {{/if}}
+
+
 {{/partial}}
-</div>
-</div>
-</div>
+
 {{> layout.hbs}}
