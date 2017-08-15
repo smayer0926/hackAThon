@@ -18,14 +18,15 @@ public class App {
 
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-            ArrayList<Team> allTeams = Team.getAllTeams();
-            model.put("allTeams", allTeams);
+            model.put("teams", Team.getAllTeams());
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
+
         get("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
             return new ModelAndView(model, "entryForm.hbs");
         }, new HandlebarsTemplateEngine());
+
         post("/teams/new", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             ArrayList<Team> allTeams = Team.getAllTeams();
@@ -40,42 +41,46 @@ public class App {
             Map<String, Object> model = new HashMap<String, Object>();
             int idOfNewTeam = Integer.parseInt(request.params("id"));
             Team teams = Team.findbyId(idOfNewTeam);
-            ArrayList<String> allMembers = teams.getAllMembers();
+            ArrayList<String> allMembers = teams.getMembers();
             model.put("teams", teams);
             model.put("members", allMembers);
+            model.put("email", allMembers);
             return new ModelAndView(model, "team-details.hbs");
         }, new HandlebarsTemplateEngine());
 
         post("/teams/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             String members = request.queryParams("members");
+            String email = request.queryParams("email");
             int idOfNewTeam = Integer.parseInt(request.params("id"));
             Team teams = Team.findbyId(idOfNewTeam);
-            ArrayList<String> allMembers = teams.getAllMembers();
-            teams.setMembers(members);
+            ArrayList<String> allMembers = teams.getMembers();
+            teams.setMembers(members, email);
             model.put("teams", teams);
             model.put("members", allMembers);
-            return new ModelAndView(model,"team-details.hbs");
+            model.put("email", allMembers);
+            return new ModelAndView(model, "team-details.hbs");
         }, new HandlebarsTemplateEngine());
 
         get("/teams/:id/update", (request, response) -> {
-            Map<String, Object> model = new HashMap<>();
+            Map<String, Object> model = new HashMap<String, Object>();
             int idOfNewTeam = Integer.parseInt(request.params("id"));
-            Team teams = Team.findbyId(idOfNewTeam);
-            model.put("teams", teams);
+            Team editTeam = Team.findbyId(idOfNewTeam);
+            model.put("editTeams", editTeam);
             return new ModelAndView(model, "entryForm.hbs");
         }, new HandlebarsTemplateEngine());
 
-        post("/teams/:id/update",(request, response) -> {
-            Map<String, Object>model = new HashMap<>();
+        post("/teams/:id/update", (request, response) -> {
+            Map<String, Object> model = new HashMap<String,Object>();
             ArrayList<Team> allTeams = Team.getAllTeams();
             String nameOfTeam = request.queryParams("nameOfTeam");
             int idOfNewTeam = Integer.parseInt(request.params("id"));
-            Team teams = Team.findbyId(idOfNewTeam);
-            teams.update(nameOfTeam);
+            Team editTeam = Team.findbyId(idOfNewTeam);
+            editTeam.update(nameOfTeam);
             model.put("teams", allTeams);
-            return new ModelAndView(model,"index.hbs");
-        }, new HandlebarsTemplateEngine());
+            response.redirect("/");
+            return null;
+        });
     }
 
 }
