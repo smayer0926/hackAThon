@@ -46,3 +46,4 @@ settings.gradle
 .idea/
 .iml
 .iml/
+*.iml
