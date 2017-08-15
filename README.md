@@ -25,7 +25,8 @@ You will need Gradle installed on your device.
 |The application should allow a new group to be created | Team Name: Hello| Hello|
 | The application should allow one or more attendees to be added to a group | Attendee: Stephanie Mayer | New Attendee: Stephanie Mayer |
 |The application should allow groups to be updated | New Group Name: Awesome | Group Name: Awesome|
-
+## Questions or Concerns ##
+_If there are any questions or concerns, please contact me at smayer0926@gmail.com_
 ## Known Bugs
 _No known bugs._
 ## Technologies Used
@@ -38,4 +39,4 @@ _No known bugs._
 
 ### License
 
-Copyright &copy; 2017 _Stephanie Mayer
+Copyright &copy; 2017 Stephanie Mayer
