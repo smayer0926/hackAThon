@@ -23,6 +23,9 @@ public class Team {
     public static Team findbyId(int id) {
        return allTeams.get(id-1);
     }
+    public static void clearAllTeams() {
+             allTeams.clear();
+           }
 
 //Getters
     public String getNameOfTeam() {
